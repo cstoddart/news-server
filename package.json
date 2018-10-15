@@ -9,7 +9,8 @@
     "serve": "pm2 start server.js --watch --ignore-watch 'node_modules'",
     "status": "pm2 status",
     "stop": "pm2 stop server",
-    "restart": "pm2 restart server"
+    "restart": "pm2 restart server",
+    "log": "pm2 logs server"
   },
   "author": "",
   "license": "ISC",
