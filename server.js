@@ -6,9 +6,9 @@ app.use(function(req, res, next) {
   console.log("REQUEST...");
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  if ((req.get('X-Forwarded-Proto') !== 'https')) {
-    return res.redirect('https://' + req.get('Host') + req.url);
-  }
+//   if ((req.get('X-Forwarded-Proto') !== 'https')) {
+//     return res.redirect('https://' + req.get('Host') + req.url);
+//   }
   next();
 });
 
