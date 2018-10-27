@@ -4,18 +4,29 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "npm run serve",
+    "dev": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "pm2 start server.js --watch --ignore-watch 'node_modules'",
+    "serve": "pm2 start server.js --watch --ignore-watch 'node_modules' --update-env && npm run log",
     "status": "pm2 status",
-    "stop": "pm2 stop server",
-    "restart": "pm2 restart server",
-    "log": "pm2 logs server"
+    "stop": "pm2 stop server && pm2 delete server",
+    "restart": "npm run stop && npm run serve",
+    "log": "pm2 logs server",
+    "lint": "eslint ./sources"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^6.1.0",
+    "eslint": "^5.7.0",
+    "eslint-plugin-node": "^7.0.1",
     "express": "^4.16.3",
+    "express-graphql": "^0.6.12",
+    "graphql": "^14.0.2",
+    "mongodb": "^3.1.8",
     "request": "^2.88.0"
+  },
+  "engines": {
+    "node": "8.4.0"
   }
 }
